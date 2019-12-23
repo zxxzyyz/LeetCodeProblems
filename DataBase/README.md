@@ -1,5 +1,4 @@
 # DataBase
-||nab||
 My solution for open problems(free sources) from LeetCode.
 ### Second Highest Salary
 Write a SQL query to get the second highest salary from the Employee table.
@@ -256,4 +255,66 @@ Should output:
 ##### Solution
 ```
 SELECT class FROM courses GROUP BY class HAVING count(student) >= 5
+```
+
+### Not Boring Movies
+X city opened a new cinema, many people would like to go to this cinema. The cinema also gives out a poster indicating the movies’ ratings and descriptions.
+Please write a SQL query to output movies with an odd numbered ID and a description that is not 'boring'. Order the result by rating.
+For example, table cinema:
+```
++---------+-----------+--------------+-----------+
+|   id    | movie     |  description |  rating   |
++---------+-----------+--------------+-----------+
+|   1     | War       |   great 3D   |   8.9     |
+|   2     | Science   |   fiction    |   8.5     |
+|   3     | irish     |   boring     |   6.2     |
+|   4     | Ice song  |   Fantacy    |   8.6     |
+|   5     | House card|   Interesting|   9.1     |
++---------+-----------+--------------+-----------+
+For the example above, the output should be:
++---------+-----------+--------------+-----------+
+|   id    | movie     |  description |  rating   |
++---------+-----------+--------------+-----------+
+|   5     | House card|   Interesting|   9.1     |
+|   1     | War       |   great 3D   |   8.9     |
++---------+-----------+--------------+-----------+
+```
+##### Solution
+```
+SELECT * FROM cinema WHERE id % 2 <> 0
+AND description <> 'boring'
+ORDER BY rating desc
+```
+
+### Swap Salary
+Given a table salary, such as the one below, that has m=male and f=female values. Swap all f and m values (i.e., change all f values to m and vice versa) with a single update statement and no intermediate temp table.
+Note that you must write a single update statement, DO NOT write any select statement for this problem.
+Example:
+```
+| id | name | sex | salary |
+|----|------|-----|--------|
+| 1  | A    | m   | 2500   |
+| 2  | B    | f   | 1500   |
+| 3  | C    | m   | 5500   |
+| 4  | D    | f   | 500    |
+After running your update statement, the above salary table should have the following rows:
+| id | name | sex | salary |
+|----|------|-----|--------|
+| 1  | A    | f   | 2500   |
+| 2  | B    | m   | 1500   |
+| 3  | C    | f   | 5500   |
+| 4  | D    | m   | 500    |
+```
+##### Solution
+```
+UPDATE salary
+SET sex = CASE sex WHEN 'm' THEN 'f' WHEN 'f' THEN 'm' ELSE sex END
+```
+Using XOR operator
+```
+UPDATE salary
+SET sex = CHAR(ASCII(sex) ^ 11)
+
+when f = 0110 0110‬ ^ 1011
+when m = 0110 1101 ^ 1011
 ```
