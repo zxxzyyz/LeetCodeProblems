@@ -21,10 +21,12 @@ For example, given the above Employee table, the query should return 200 as the 
 ```
 
 ```
-select max(Salary) as "SecondHighestSalary" from Employee where Salary < (select max(Salary) from Employee)
+select max(Salary) as "SecondHighestSalary"
+from Employee where Salary < (select max(Salary) from Employee)
 ```
 ```
-select max(Salary) as "SecondHighestSalary" from Employee where Salary NOT IN (select max(Salary) from Employee)
+select max(Salary) as "SecondHighestSalary"
+from Employee where Salary NOT IN (select max(Salary) from Employee)
 ```
 
 ### Combine Two Tables
