@@ -21,12 +21,12 @@ For example, given the above Employee table, the query should return 200 as the 
 ```
 ##### Solution
 ```
-select max(Salary) as "SecondHighestSalary"
-from Employee where Salary < (select max(Salary) from Employee)
+SELECT max(Salary) as "SecondHighestSalary"
+FROM Employee WHERE Salary < (SELECT max(Salary) FROM Employee)
 ```
 ```
-select max(Salary) as "SecondHighestSalary"
-from Employee where Salary NOT IN (select max(Salary) from Employee)
+SELECT max(Salary) as "SecondHighestSalary"
+FROM Employee WHERE Salary NOT IN (SELECT max(Salary) FROM Employee)
 ```
 
 ### Combine Two Tables
@@ -60,8 +60,34 @@ Write a SQL query for a report that provides the following information for each 
 FirstName, LastName, City, State
 ##### Solution
 ```
-select p.FirstName, p.LastName, a.City, a.State
-from Person as p
+SELECT p.FirstName, p.LastName, a.City, a.State
+FROM Person as p
 LEFT JOIN Address as a
 ON p.PersonId = a.PersonId
+```
+
+### Employees Earning More Than Their Managers
+The Employee table holds all employees including their managers. Every employee has an Id, and there is also a column for the manager Id.
+```
++----+-------+--------+-----------+
+| Id | Name  | Salary | ManagerId |
++----+-------+--------+-----------+
+| 1  | Joe   | 70000  | 3         |
+| 2  | Henry | 80000  | 4         |
+| 3  | Sam   | 60000  | NULL      |
+| 4  | Max   | 90000  | NULL      |
++----+-------+--------+-----------+
+```
+Given the Employee table, write a SQL query that finds out employees who earn more than their managers. For the above table, Joe is the only employee who earns more than his manager.
+```
++----------+
+| Employee |
++----------+
+| Joe      |
++----------+
+```
+##### Solution
+```
+SELECT e.name as Employee FROM Employee e
+WHERE e.Salary > (SELECT m.Salary FROM Employee m WHERE m.Id = e.ManagerId)
 ```
