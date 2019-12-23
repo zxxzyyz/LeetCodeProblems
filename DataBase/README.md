@@ -19,7 +19,7 @@ For example, given the above Employee table, the query should return 200 as the 
 | 200                 |
 +---------------------+
 ```
-
+##### Solution
 ```
 select max(Salary) as "SecondHighestSalary"
 from Employee where Salary < (select max(Salary) from Employee)
@@ -58,6 +58,7 @@ AddressId is the primary key column for this table.
 Write a SQL query for a report that provides the following information for each person in the Person table, regardless if there is an address for each of those people:
 
 FirstName, LastName, City, State
+##### Solution
 ```
 select p.FirstName, p.LastName, a.City, a.State
 from Person as p
