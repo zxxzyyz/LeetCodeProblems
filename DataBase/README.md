@@ -9,7 +9,7 @@ Id|Salary\
 For example, given the above Employee table, the query should return 200 as the second highest salary.\
 If there is no second highest salary, then the query should return null.\
 SecondHighestSalary\
-200\
+200
 
 ```
 select max(Salary) as "SecondHighestSalary" from Employee where Salary < (select max(Salary) from Employee)
