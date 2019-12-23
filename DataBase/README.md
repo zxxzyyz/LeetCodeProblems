@@ -148,3 +148,43 @@ Using the above tables as example, return the following:
 SELECT c.Name as "Customers" FROM Customers c
 WHERE c.Id NOT IN (SELECT CustomerId FROM Orders)
 ```
+
+### Rising Temperature
+Given a Weather table, write a SQL query to find all dates' Ids with higher temperature compared to its previous (yesterday's) dates.
+```
++---------+------------------+------------------+
+| Id(INT) | RecordDate(DATE) | Temperature(INT) |
++---------+------------------+------------------+
+|       1 |       2015-01-01 |               10 |
+|       2 |       2015-01-02 |               25 |
+|       3 |       2015-01-03 |               20 |
+|       4 |       2015-01-04 |               30 |
++---------+------------------+------------------+
+For example, return the following Ids for the above Weather table:
++----+
+| Id |
++----+
+|  2 |
+|  4 |
++----+
+```
+##### Solution
+SQL-Server solution
+```
+SELECT w.Id FROM Weather w
+WHERE w.Temperature > (SELECT yda.Temperature
+                       FROM Weather yda
+                       WHERE yda.RecordDate = DATEADD(day, -1, w.RecordDate))
+```
+Someone else's solution
+```
+select a.id as Id
+from Weather a , Weather b
+where datediff(day, b.RecordDate, a.RecordDate) = 1
+and a.Temperature > b.Temperature
+```
+Oracle solution
+```
+SELECT w.Id FROM Weather w JOIN Weather yda ON yda.RecordDate = w.RecordDate - 1
+WHERE w.Temperature > yda.Temperature
+```
