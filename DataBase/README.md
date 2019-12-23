@@ -1,5 +1,5 @@
 # DataBase
-
+My solution for open problems(free sources) from LeetCode.
 ### Second Highest Salary
 Write a SQL query to get the second highest salary from the Employee table.
 ```
