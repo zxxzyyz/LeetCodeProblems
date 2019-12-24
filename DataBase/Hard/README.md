@@ -25,6 +25,7 @@
   insert into Users (Users_Id, Banned, Role) values ('12', 'No', 'driver')
   insert into Users (Users_Id, Banned, Role) values ('13', 'No', 'driver')
 </details>
+
 ## Problem
 The Trips table holds all taxi trips.
 Each trip has a unique Id,
