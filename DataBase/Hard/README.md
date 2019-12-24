@@ -4,7 +4,7 @@
 
 <details>
   <summary>Schema</summary>
-  ```
+	`
   Create table Trips (Id int, Client_Id int, Driver_Id int, City_Id int, Status varchar(50) NOT NULL CHECK(Status IN ('completed', 'cancelled_by_driver', 'cancelled_by_client')), Request_at varchar(50))
   Create table Users (Users_Id int, Banned varchar(50), Role varchar(50) NOT NULL CHECK(Role IN ('client', 'driver', 'partner')))
   insert into Trips (Id, Client_Id, Driver_Id, City_Id, Status, Request_at) values ('1', '1', '10', '1', 'completed', '2013-10-01')
@@ -25,7 +25,7 @@
   insert into Users (Users_Id, Banned, Role) values ('11', 'No', 'driver')
   insert into Users (Users_Id, Banned, Role) values ('12', 'No', 'driver')
   insert into Users (Users_Id, Banned, Role) values ('13', 'No', 'driver')
-  ```
+	`
 </details>
 
 The Trips table holds all taxi trips.
