@@ -99,7 +99,7 @@ GROUP BY Request_At
 
 <details>
   <summary>Schema</summary>
-  Create table Employee (Id int, Name varchar(255), Salary int, DepartmentId int)
+  `Create table Employee (Id int, Name varchar(255), Salary int, DepartmentId int)`
   Create table Department (Id int, Name varchar(255))
   insert into Employee (Id, Name, Salary, DepartmentId) values ('1', 'Joe', '85000', '1')
   insert into Employee (Id, Name, Salary, DepartmentId) values ('2', 'Henry', '80000', '2')
