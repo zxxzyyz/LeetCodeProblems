@@ -24,7 +24,8 @@
   insert into Users (Users_Id, Banned, Role) values ('10', 'No', 'driver')
   insert into Users (Users_Id, Banned, Role) values ('11', 'No', 'driver')
   insert into Users (Users_Id, Banned, Role) values ('12', 'No', 'driver')
-  insert into Users (Users_Id, Banned, Role) values ('13', 'No', 'driver')```
+  insert into Users (Users_Id, Banned, Role) values ('13', 'No', 'driver')
+  ```
 </details>
 
 The Trips table holds all taxi trips.
