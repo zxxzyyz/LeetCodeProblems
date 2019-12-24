@@ -66,3 +66,7 @@ WHERE Request_at BETWEEN '2013-10-01' AND '2013-10-03'
   AND Driver_Id IN (SELECT Users_Id FROM Users WHERE Banned = 'No')
 GROUP BY Request_At
 ```
+<details>
+  <summary>Click to expand</summary>
+  whatever
+</details>
