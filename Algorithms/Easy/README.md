@@ -82,9 +82,9 @@ Solution 3:
 function defangIPaddr(address) {
     let addr = address;
     for (let i = address.length - 1; i >= 0; i--) {
-	    if (addr.charAt(i) === ".") addr = replaceAt(addr, i, "[.]");
-	}
-	return addr;
+        if (addr.charAt(i) === ".") addr = replaceAt(addr, i, "[.]");
+    }
+    return addr;
 }
 
 function replaceAt(string, index, replace) {
