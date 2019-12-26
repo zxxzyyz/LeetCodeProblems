@@ -29,7 +29,6 @@
   ```
 </details>
 
-
 The Trips table holds all taxi trips.
 Each trip has a unique Id,
 while Client_Id and Driver_Id are both foreign keys to the Users_Id at the Users table.
@@ -193,6 +192,7 @@ WHERE 3 > (SELECT COUNT(DISTINCT e2.Salary)
   insert into stadium (id, visit_date, people) values ('8', '2017-01-08', '188')
   ```
 </details>
+
 X city built a new stadium, each day many people visit it and the stats are saved as these columns: id, visit_date, people
 Please write a query to display the records which have 3 or more consecutive rows and the amount of people more than 100(inclusive).
 For example, the table stadium:
