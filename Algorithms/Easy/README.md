@@ -24,3 +24,30 @@ Constraints:
 1 <= nums.length <= 500
 1 <= nums[i] <= 10^5
 ```
+##### Solution
+```Javascript
+Solution 1:
+function findNumbers(nums) {
+    let result = 0;
+    for (let i = 0; i < nums.length; i++) {
+        let digit = 0;
+        let num = nums[i];
+        while(num) {
+            num = Math.floor(num / 10);
+            digit++;
+        }
+        if (digit % 2 === 0) result++;
+    }
+    return result;
+};
+
+Solution 2:
+function findNumbers(nums) {
+    return nums.reduce((result, num) => (Math.floor(Math.log10(num)) + 1) % 2 === 0 ? result += 1 : result, 0)
+};
+
+Solution 3:
+function findNumbers(nums) {
+  return nums.reduce((result, num) => num.toString().length % 2 === 0 ? result += 1 : result , 0)
+};
+```
