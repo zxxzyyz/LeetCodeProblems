@@ -69,12 +69,25 @@ The given address is a valid IPv4 address.
 ```
 
 ##### Solution
-```
+```Javascript
 Solution 1:
 const defangIPaddr = address => address.split(".").join("[.]");
 
 Solution 2:
 function defangIPaddr(address) {
     return address.replace(/\./g, "[.]");
+}
+
+Solution 3:
+function defangIPaddr(address) {
+    let addr = address;
+    for (let i = address.length - 1; i >= 0; i--) {
+	    if (addr.charAt(i) === ".") addr = replaceAt(addr, i, "[.]");
+	}
+	return addr;
+}
+
+function replaceAt(string, index, replace) {
+    return string.substring(0, index) + replace + string.substring(index + 1,);
 }
 ```
