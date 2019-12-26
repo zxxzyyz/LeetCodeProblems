@@ -51,3 +51,30 @@ function findNumbers(nums) {
   return nums.reduce((result, num) => num.toString().length % 2 === 0 ? result += 1 : result , 0)
 };
 ```
+
+### Defanging an IP Address
+Given a valid (IPv4) IP address, return a defanged version of that IP address.
+A defanged IP address replaces every period "." with "[.]".
+```
+Example 1:
+Input: address = "1.1.1.1"
+Output: "1[.]1[.]1[.]1"
+
+Example 2:
+Input: address = "255.100.50.0"
+Output: "255[.]100[.]50[.]0"
+
+Constraints:
+The given address is a valid IPv4 address.
+```
+
+##### Solution
+```
+Solution 1:
+const defangIPaddr = address => address.split(".").join("[.]");
+
+Solution 2:
+function defangIPaddr(address) {
+    return address.replace(/\./g, "[.]");
+}
+```
